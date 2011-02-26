@@ -14,7 +14,7 @@ function transliterate(word) {
 function set_new_word() {
   word = random_word(words);
   document.getElementById('kana').innerHTML = word;
-  return transliterate(word);
+  return word;
 }
 
 function show_correct_message(result) {
@@ -22,14 +22,15 @@ function show_correct_message(result) {
   result.className = 'correct'
 }
 
-function show_incorrect_message(result, answer) {
-  result.innerHTML = 'Wrong! The correct answer is <strong>' + answer + '</strong>.';
+function show_incorrect_message(result, kana, answer) {
+  result.innerHTML = 'Wrong! <strong>' + kana + '</strong> means <strong>' + answer + '</strong>.';
   result.className = 'wrong'
 }
 
 window.onload = function(){
 
-  var romaji = set_new_word();
+  var kana = set_new_word();
+  var romaji = transliterate(kana);
 
   var input = document.getElementById('input');
   var result = document.getElementById('result');
@@ -45,9 +46,10 @@ window.onload = function(){
       if (input.value.toLowerCase() == romaji) {
         show_correct_message(result);
       } else {
-        show_incorrect_message(result, romaji);
+        show_incorrect_message(result, kana, romaji);
       }
-      romaji = set_new_word();
+      kana = set_new_word();
+      romaji = transliterate(kana);
       input.value = '';
       input.focus();
     }
