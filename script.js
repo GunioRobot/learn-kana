@@ -53,3 +53,18 @@ window.onload = function(){
     }
   }
 }
+
+
+/* Dim the footer if there is no mouse movement */
+
+dim = setTimeout(hide, 10000);
+
+function hide() {
+  document.getElementById('footer').setAttribute('class', 'hide');
+}
+
+document.onmousemove = function() {
+  document.getElementById('footer').setAttribute('class','show');
+  clearTimeout(dim);
+  dim = setTimeout(hide, 5000);
+};
