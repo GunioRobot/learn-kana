@@ -22,7 +22,7 @@ p#kana {
   text-shadow: 1px 1px white;
 }
 
-input {
+input#input {
   font-size: 20px;
   padding: 7px;
   margin: 30px;
