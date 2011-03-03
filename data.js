@@ -8,7 +8,7 @@ var hiragana = JSON.parse(
    '"ま":"ma", "み":"mi", "む":"mu", "め":"me", "も":"mo",'+
    '"や":"ya", "ゆ":"yu", "よ":"yo",'+
    '"ら":"ra", "り":"ri", "る":"ru", "れ":"re", "ろ":"ro",'+
-   '"わ":"wa", "を":"wo", "ん":"n"}');
+   '"わ":"wa", "を":"o", "ん":"n"}');
 
 var available_words = [
   /* Level 1 */
