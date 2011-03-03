@@ -33,14 +33,9 @@ function transliterate(word) {
   return output;
 }
 
-function show_correct_message(result) {
-  result.innerHTML = 'Correct!'
-  result.className = 'correct'
-}
-
-function show_incorrect_message(result, kana, answer) {
-  result.innerHTML = 'Wrong! <strong>' + kana + '</strong> means <strong>' + answer + '</strong>.';
-  result.className = 'wrong'
+function show_result(result, kana, answer) {
+  document.getElementById('result').innerHTML = '' + result + '! <strong>' + kana + '</strong> means <strong>' + answer + '</strong>.';
+  document.getElementById('result').className = result.toLowerCase() + ' show';
 }
 
 /* Configuration functions */
@@ -86,7 +81,6 @@ window.onload = function(){
   generate_checkboxes();
 
   var input = document.getElementById('input');
-  var result = document.getElementById('result');
 
   input.focus();
 
@@ -97,9 +91,9 @@ window.onload = function(){
 
     if ((e.keyCode == 13) ) {
       if (input.value.toLowerCase() == romaji) {
-        show_correct_message(result);
+        show_result('Correct', kana, romaji);
       } else {
-        show_incorrect_message(result, kana, romaji);
+        show_result('Wrong', kana, romaji);
       }
       kana = set_new_word(words);
       romaji = transliterate(kana);
