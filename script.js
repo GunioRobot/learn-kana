@@ -1,3 +1,8 @@
+/* Global variables */
+var level = [true, true, false, false, true];
+var words = [];
+
+/* Quiz functions */
 function generate_word_list(level, available_words) {
   var words = new Array;
 
@@ -9,13 +14,13 @@ function generate_word_list(level, available_words) {
   return words;
 }
 
-function set_new_word(words) {
-  var word = random_word(words);
+function set_new_word() {
+  var word = random_word();
   document.getElementById('kana').innerHTML = word;
   return word;
 }
 
-function random_word(words) {
+function random_word() {
   return words[Math.floor(Math.random()*words.length)];
 }
 
@@ -38,14 +43,47 @@ function show_incorrect_message(result, kana, answer) {
   result.className = 'wrong'
 }
 
+/* Configuration functions */
+function generate_checkboxes() {
+
+  for (var i = 0; i < level.length; i++ ) {
+    var label = document.createElement('label');
+    var checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('name', i);
+    if (level[i] == true) {
+      checkbox.checked = true;
+    }
+
+    /* The caption is 1-indexed */
+    var caption = document.createTextNode(' Level ' + (i + 1));
+    label.appendChild(checkbox);
+    label.appendChild(caption);
+
+    /* If the checkbox is clicked, update the word list accordingly */
+		checkbox.addEventListener("click", function() { 
+       update_levels(this.getAttribute('name'), this.checked);
+    }, false);
+    document.getElementById('config').appendChild(label);
+  }
+}
+
+function update_levels(changed_level, changed_value) {
+  level[changed_level] = changed_value;
+
+  words = generate_word_list(level, available_words);
+  kana = set_new_word(words);
+  romaji = transliterate(kana);
+}
+
 window.onload = function(){
 
-  var level = [true, true, true, true, true];
-
-  var words = [];
   words = generate_word_list(level, available_words);
   var kana = set_new_word(words);
   var romaji = transliterate(kana);
+
+  /* Temp: */
+  generate_checkboxes();
 
   var input = document.getElementById('input');
   var result = document.getElementById('result');
@@ -69,9 +107,7 @@ window.onload = function(){
       input.focus();
     }
   }
-
 }
-
 
 /* Dim the footer if there is no mouse movement */
 
