@@ -34,7 +34,7 @@ function transliterate(word) {
 }
 
 function show_result(result, kana, answer) {
-  document.getElementById('result').innerHTML = '' + result + '! <strong>' + kana + '</strong> means <strong>' + answer + '</strong>.';
+  document.getElementById('result').innerHTML = '' + result + '! <strong class=\'kana\'>' + kana + '</strong> means <strong>' + answer + '</strong>.';
   document.getElementById('result').className = result.toLowerCase() + ' show';
 }
 

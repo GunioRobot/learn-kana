@@ -20,6 +20,9 @@ p#kana {
   font-size: 100px;
   padding: 0 0 70px 0;
   text-shadow: 1px 1px white;
+}
+
+#kana, .kana {
   font-family: "MS Gothic";
 }
 
@@ -73,3 +76,4 @@ a {
 .hide {
   opacity: 0;
 }
+
