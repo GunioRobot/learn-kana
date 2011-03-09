@@ -79,6 +79,8 @@ window.onload = function(){
 
   var quiz = document.getElementById('quiz');
   var preferences = document.getElementById('preferences');
+  var meta = document.getElementById('meta');
+
 
   /* Temp: */
   generate_checkboxes();
@@ -106,18 +108,27 @@ window.onload = function(){
   }
 
 
-  /* Toggle prefs dialog */
+  /* Toggle dialogs */
   document.getElementById('prefs').onclick = function() {
     quiz.setAttribute('class', 'hidden');
     preferences.setAttribute('class', 'visible');
   }
 
-  document.getElementById('return').onclick = function() {
+  document.getElementById('about').onclick = function() {
+    quiz.setAttribute('class', 'hidden');
+    meta.setAttribute('class', 'visible');
+  }
+
+  /* FIXME: Combine the two following listeners */
+  document.getElementById('return_chars').onclick = function() {
     quiz.setAttribute('class', 'visible');
     preferences.setAttribute('class', 'hidden');
   }
 
-
+  document.getElementById('return_about').onclick = function() {
+    quiz.setAttribute('class', 'visible');
+    meta.setAttribute('class', 'hidden');
+  }
 }
 
 

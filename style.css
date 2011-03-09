@@ -28,8 +28,12 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+  font-weight: bold;
 }
 
+p {
+  margin-bottom: 15px;
+}
 
 /* Quiz page */
 p#kana {
@@ -64,8 +68,12 @@ input#input {
 .wrong {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAq1JREFUeNrsVs9rE1EQnvf2R5K2qTVNI6Gl7aFYIlXRS5CKFZF6KMSzF%2BlBtCj%2BAf0DtFdBKkUsiBdPHgz0UkQiFTSXgFoIqSU0tRqMMcb0V2h285zZbGuitCnNSkDy4CPZed9kvjczbzZMCAH1XBzqvBoCGgIaAuouQK5GYIxVPD73%2B%2FwtHCYkIc5vDzHi6IyF1oowfjkcDaOpYrrtNexYtUlYJkCaPeObcra2Xuu6cBFcvgGQmhzGhr6xCZnoPKy8fAGrudyj4TfRMTJbKUDG4M%2FaPJ7AwPVbUIh9gHz4FWjfkqU0dnjB7h8Cpf84zD%2BchOzX1PTw2%2BiNbRG1CmDTp%2FrOHTvSETp58zbkg0%2BhsLKE%2BcDqcbOFikUMpYHS1Qv2wBV49%2BA%2BxFLpodHIx7lSfFFTEyqdqnyn59IIbIVmQMdT86Zm4A4HcJutBPqONtojDnG9qnSXfK24BQ67xAcPt7eBnohjQAymYlBZqQTZcI84xLVxPki%2BNd8CXColkH%2BKg6zaQVDaK29GebsDw9IQ10y6aoUABoyDyP4wTil2C%2F67qQwu%2BRi%2BFggwTlzEH5VsdihWaVpucoExyyahyGl6JLuRxxLYQMZ6S7uA9ohDXPL5cyAdVMDWbCp7L5FMAcf6UgBJUf5qQrLRHnGISz7ka4WAzcn4l7nF3HowEl3AAIrRjCUhqgEjM2ijPeIQl3zIt2p19zOI8MOJ6Hl8%2BuhEv8s50tfbDW63GzvIbCFNg3Q6DYtLyxDLrM6MRhbG0ZpArFYbRPsdxRLiEKLzarfnbMDrGmuXpRNi55oAfNf098FkZurJcuo1Pn5G%2FLRqFO%2B8jBDNCBcCjw8tpg3MQGuINCKDWLf6ZQRlh1XMCaeW3XNhNhzVvPCvXscHXnvFkGtxbvwnbAj4LwT8EmAAk%2BoUbw9u%2BWUAAAAASUVORK5CYII%3D');
 }
-
-
+/* Dialogs */
+div#preferences, div#meta {
+  text-align: left;
+  width: 500px;
+  margin: 0 auto;
+}
 /* Footer */
 #footer {
   padding-top: 20px;
@@ -84,29 +92,33 @@ input#input {
 }
 
 
-/* Preferences */
+/* Navigation */
 
-p#prefs span, p#return span {
+p#prefs span, p#return_chars span, p#return_about span, p#about span {
   background-repeat: no-repeat;
   background-position: 0 2px;
 	padding: 0 0 0 22px;
   font-size: 17px;
   color: rgb(100,100,100);
+	cursor: hand;
 }
 
-p#prefs {
-  margin: 20px 0;
+p#about span {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAptJREFUeNpkU01IVFEU%2Fu57896dcZqxGLPQEkqLwoRaSBBREmRBkLpqkwRGP5S7khYt%2BtmFtgisoEUba%2BEi1EULFSqHfhZiBPaDEw7l2IDTjDkzZG%2FGmfc6584PWgcul3PO9333nPPeEfjHqk4P3c%2FnnS7HcdwO%2BYKPEJaui8fxJx2XV2MJo%2FLKNnYOtxpCjLY21%2BJgUzWq%2FJIATAbiqQxeT8cwNvkDK45z7OdA%2B9gaASZvqpSjV081IbGcw%2FinBL5E01jOOqgwBXbX%2BHC0MYBAhQt9g9NYSGaUCAtoLOCil2%2Bf2Yd34TQevoxg%2FzY%2FvvUeRuxei7rZ5zjnGcf4UuUa99x1vAETs0lMzSXhNjXcbG9AMLSIup4gXs0sKl8amsozjvHMUwK2bZ%2Bt3VyJ99%2FTVK6LjqGU%2B0YjCKyT6H8xr3xp6CrPOMYzr1A9hJxLZuGhF2jaMCnS0julBmhS7FZbvRJgsttQHYPxzCu2DyStHKR0FbvSIW0HmZyNGye3o7HGi4tPQ%2FB6XDB0DSW8KH4%2FroACeaXOr7IRHzbdR3ZtwPWRMCK%2FLHhNHZomigJ5rqAk4GTtvG1K6p36Kgsw8sSDj%2FSqgM9jQNcKBE3TkMtRBcQrDNFKDEejS6iQOlWh0ww0NQcXEZ9f2gNJPn8BjnOecYxnnhKIPzvX83lmARb15aGX3DQLkwYmzcJM%2BGaf45xnHOOZpwR4qLnIm%2B7xiRlkrBV43Qa8BPbR0C4MhtXNPsc5zzjGMw%2FFXWHzrz90pVPfcqC%2Fee9W7Kyvht9rlnch9TuL0GwMkx8iyM%2B%2F7V4K3h0gTmrNMrEInR2BjkfXhCfQRoM0y7%2BrQNb5kxhJDJ2%2FQ%2B5XJv%2B3jausjk6g2F7J%2BPMkSmWvXue%2FAgwAAsgW%2FloR4LMAAAAASUVORK5CYII%3D');
 }
 
 p#prefs span {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAj9JREFUeNqUU01oE0EYfbO7iUk0tAZraSFeGo0XwWDxj0psTt4iQg%2BeLJ71LhVBRXoogqAoiAUVLx48xIs3ixKkIGmqlVYSG71YtQhNWmM2yf6M38xsTamr4Edm883sfG%2B%2F994M45yDMYaNMTs%2BlAvH%2BrMiN1e%2BVlNj%2BRh8QtSqx6aYuXqY82ZZDpHjLyFqNb8XSyuNJ7XiM1hL8zCb7UX8IwzV8rFceHtPVjOCctF1XETjA9CDYezYlUiUJ%2Fdy124TneWnROfkHwCu42STZ84D7TbNdIAFgPJtuSF5%2BhzNXdqpoXj9Qta3AxUmIVlA5T5QfQNoW9Ty67NEtgUcmQR3uT%2BFmsmnSg%2FuZiK9fYhnRoG3lxQAI4k4fd1tycH0AApXjs4Ft0b2OZZdpdIY82wcoEl3%2Bd6pwu6REWDhBgEIPYTGXHXWtQfoOY7Vygd0HUhhduImUhfzbJ1CxTOGfkTFCCkdmAfAdYWFJg1H0QXb6EL6Rbg7mg7ForT5J62K9g21R9Km6r5DKN56DLNlLUaeTyc409Y6LthuOjk6TGIsA99fAf0Hqdg7nUK4xheaN8BtB0PXpoUTYUNnjjXmAcjDaDeA%2Bidg206Ucu%2BgGUx%2BPRSLID6cpLxOjUjQBfGwHd6hIO%2BCQUr3JuhfR%2F3bHAYv5wfFu%2Fd3ThQQtCQLxjR%2FGwn5R%2BlhIaoFNBLchc3YR3El5LH%2BvDbFHs1khB6rLeflZoB1G%2FerI%2Fg7hNzzXi4t9vJaxzF1mZjfbfyf%2BCXAAPkf4mqW2jyTAAAAAElFTkSuQmCC');
 }
 
-p#return span {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARVJREFUeNrUkz1LA0EQhp%2FdWz%2FwZwhqaXEn%2BAOsDJiAggqWpkkjVoK92ihJf5YpbbS2EQxYXBAEqwjBwtJgE8Lp7a67OSw9oinEgbeZnXl5dmZXWGsZJyRjxt8bqEpD4KdgDGiLDQQdKZkXoxL45kzD4B3b2GqSZsxpZ2Zssb5mr3xx%2BoE9245pPe2wPAu3nSEJfIPh046SiYBLpTX2aPOY5KWKUbAa7VJa0siCOwh3NqkUB824rHyin%2FVg2g8CHnvnBDIvKjbISbzClROSvUqVVxHTfYZWO0csMvGEZsCNWqvTvtonksRJbX2Du%2FsLrg%2BJRlzCmyjXGa7RmYSlUxKd8jA1w%2BJv30XotPCTBvH%2FP9OnAAMAfmJmsIp0kJMAAAAASUVORK5CYII%3D');
+p#return_chars, p#return_about {
+  margin-top: 15px;
+  text-align: center;
 }
 
-
+p#return_chars span, p#return_about span {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARVJREFUeNrUkz1LA0EQhp%2FdWz%2FwZwhqaXEn%2BAOsDJiAggqWpkkjVoK92ihJf5YpbbS2EQxYXBAEqwjBwtJgE8Lp7a67OSw9oinEgbeZnXl5dmZXWGsZJyRjxt8bqEpD4KdgDGiLDQQdKZkXoxL45kzD4B3b2GqSZsxpZ2Zssb5mr3xx%2BoE9245pPe2wPAu3nSEJfIPh046SiYBLpTX2aPOY5KWKUbAa7VJa0siCOwh3NqkUB824rHyin%2FVg2g8CHnvnBDIvKjbISbzClROSvUqVVxHTfYZWO0csMvGEZsCNWqvTvtonksRJbX2Du%2FsLrg%2BJRlzCmyjXGa7RmYSlUxKd8jA1w%2BJv30XotPCTBvH%2FP9OnAAMAfmJmsIp0kJMAAAAASUVORK5CYII%3D');
+}
 
 
 /* Show and hide */
