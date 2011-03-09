@@ -59,7 +59,7 @@ function generate_checkboxes() {
 		checkbox.addEventListener("click", function() { 
        update_levels(this.getAttribute('name'), this.checked);
     }, false);
-    document.getElementById('config').appendChild(label);
+    document.getElementById('levels').appendChild(label);
   }
 }
 
@@ -76,6 +76,9 @@ window.onload = function(){
   words = generate_word_list(level, available_words);
   var kana = set_new_word(words);
   var romaji = transliterate(kana);
+
+  var quiz = document.getElementById('quiz');
+  var preferences = document.getElementById('preferences');
 
   /* Temp: */
   generate_checkboxes();
@@ -101,7 +104,22 @@ window.onload = function(){
       input.focus();
     }
   }
+
+
+  /* Toggle prefs dialog */
+  document.getElementById('prefs').onclick = function() {
+    quiz.setAttribute('class', 'hidden');
+    preferences.setAttribute('class', 'visible');
+  }
+
+  document.getElementById('return').onclick = function() {
+    quiz.setAttribute('class', 'visible');
+    preferences.setAttribute('class', 'hidden');
+  }
+
+
 }
+
 
 /* Dim the footer if there is no mouse movement */
 
