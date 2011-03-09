@@ -1,5 +1,5 @@
 /* Global variables */
-var level = [true, true, false, false, true];
+var level = [true, true, true, true, true];
 var words = [];
 
 /* Quiz functions */
