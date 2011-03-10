@@ -56,9 +56,8 @@ function generate_checkboxes() {
     label.appendChild(caption);
 
     /* If the checkbox is clicked, update the word list accordingly */
-		checkbox.addEventListener("click", function() { 
-       update_levels(this.getAttribute('name'), this.checked);
-    }, false);
+    checkbox.onclick = function() { update_levels(this.getAttribute('name'), this.checked); }
+
     document.getElementById('levels').appendChild(label);
   }
 }
