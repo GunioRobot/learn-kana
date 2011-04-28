@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>Unit tests for learn-kana</title>
+
+<body onload="load_test_attr.done()">
+
+<div id='log'></div>
+<script src='testharness.js'></script>
+
+<script src='../kana.js'></script>
+<script src='../script.js'></script>
+
+<script>
+
+/* trasliterate() */
+test(function() {
+  assert_equals(transliterate('ちさいふね'), 'chisaifune')},
+  '“ちさいふね” should be transliterated to “sachiifune”'
+);
+
+test(function() {
+  assert_equals(transliterate('えんぴつ'), 'enpitsu')},
+  '“えんぴつ” should be transliterated to “enpitsu”'
+);
+
+test(function() {
+  assert_equals(transliterate('ばんごはん'), 'bangohan')},
+  '“ばんごはん” should be transliterated to “bangohan”'
+);
+
+</script>
